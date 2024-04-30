@@ -254,7 +254,12 @@ public:
     }
     bool horizontal_rotation(char rotation)
     {
-
+        int column_length = sizeof(cube_struct.face1[1]);
+        int row_length = sizeof(cube_struct.face1);
+        for (int i = 0; i < columnn_length; i++)
+            column_vector.push_back(0);
+        for (int i = 0; i < row_length; i++)
+            row_vector.push_back(0);
     }
     bool vertical_rotation(char rotation)
     {
