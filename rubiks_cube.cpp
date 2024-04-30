@@ -17,7 +17,7 @@ struct cube_struct{
 class rubiks_cube{
 private:
     cube_struct new_cube_struct;
-    int[] column_array, rows_array;
+    vector <int> column_vector, row_vector;
 public:
     void populate_cube_faces(long rows , long columns)
     {
@@ -389,5 +389,5 @@ public:
 int main()
 {
     rubiks_cube rubiks_cube_instance;
-    rubiks_cube_instance;
+    rubiks_cube_instance.populate_cube_faces();
 }
