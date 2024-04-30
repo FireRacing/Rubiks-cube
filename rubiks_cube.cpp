@@ -21,8 +21,7 @@ private:
 public:
     void populate_cube_faces(long rows , long columns)
     {
-        column_array[columns];
-        rows_array[rows];
+
         /*      1   2
         *      -------
         *   1 | 1   2 |
@@ -68,7 +67,7 @@ public:
                 number = number % 256;
                 temporary_vector.push_back(number);
             }
-            new_cube.face3.push_back(temporary_vector);
+            new_cube_struct.face3.push_back(temporary_vector);
             temporary_vector.clear();
         }
         cout << "Face 3 populated" << endl;
@@ -124,7 +123,7 @@ public:
         display_cube(new_cube_struct);
         while (1)
         {
-            display_cube(cube_struct);
+            display_cube(new_cube_struct);
             cout << "Which face do you want to select?";
             cin >> face;
             face = face % 6;
@@ -209,60 +208,56 @@ public:
         break;
         case 2 : char rotation;
                 if (rotation == 'L' || rotation == 'R')
-                    horizontal_rotation(rotation);
+                    is_rotated = horizontal_rotation(rotation);
                 else if (rotation == 'U' || rotation == 'U')
-                    vertical_rotation(rotation);
-                if (is_rotated == true)
-                    continue;
-                else
-                    cout << "Rotation failed" << endl;
+                    is_rotated = vertical_rotation(rotation)
         break;
         case 3 : char rotation;
                 if (rotation == 'L' || rotation == 'R')
-                    horizontal_rotation(rotation);
+                    is_rotated = horizontal_rotation(rotation);
                 else if (rotation == 'U' || rotation == 'U')
-                    vertical_rotation(rotation);
+                    is_rotated = vertical_rotation(rotation);
                 break;
-                if (is_rotated == true)
-                    cout << "Rotation successful"
-                    continue;
-                else
-                    cout << "Rotation failed" << endl;
 
         case 4 : char rotation;
                 if (rotation == 'L' || rotation == 'R')
-                    horizontal_rotation(rotation);
+                    is_rotated = horizontal_rotation(rotation);
                 else if (rotation == 'U' || rotation == 'U')
-                    vertical_rotation(rotation);
+                    is_rotated = vertical_rotation(rotation);
                 break;
 
         case 5 : char rotation;
                 if (rotation == 'L' || rotation == 'R')
-                    horizontal_rotation(rotation);
+                    is_rotated = horizontal_rotation(rotation);
                 else if (rotation == 'U' || rotation == 'U')
-                    vertical_rotation(rotation);
+                    is_rotated = vertical_rotation(rotation);
                 break;
 
         case 6 : char rotation;
                 if (rotation == 'L' || rotation == 'R')
-                    horizontal_rotation(rotation);
+                    is_rotated = horizontal_rotation(rotation);
                 else if (rotation == 'U' || rotation == 'U')
-                    vertical_rotation(rotation);
+                    is_rotated = vertical_rotation(rotation);
                 break;
 
         }
     }
-    bool horizontal_rotation(char rotation)
+    void horizontal_rotation(char rotation)
     {
-        int column_length = sizeof(cube_struct.face1[1]);
-        int row_length = sizeof(cube_struct.face1);
+        int row_length = sizeof(new_cube_struct.face1);
         for (int i = 0; i < columnn_length; i++)
             column_vector.push_back(0);
         for (int i = 0; i < row_length; i++)
             row_vector.push_back(0);
+        cout << "Select face: ";
+        int face;
+        cin >> face;
+        for (int i = 0; i < row_length ; i++)
+
     }
-    bool vertical_rotation(char rotation)
+    void vertical_rotation(char rotation)
     {
+        int column_length = sizeof(new_cube_struct.face1[1]);
 
     }
     bool is_additive_group(vector<char> move_list)

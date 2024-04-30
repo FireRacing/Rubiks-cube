@@ -10,3 +10,7 @@ Up rotation
 Down rotation
   take column number
   swap elements with up side face
+
+swap algorithm
+    copy existing numbers of selected face into temporary vector
+    swap numbers in the vector with existing numbers of new face
