@@ -220,10 +220,97 @@ public:
             if(result == result1)
                 associative_count += 1;
         }
+        if (associative_count == sizeof(move_list) -1 )
+        {
+            cout << "Group is associative" << endl;
+            int inverse_count = 0;
+            for (int i = 1; i < sizeof(move_list); i++)
+            {
+                result = translated_vector[i-1] - translated_vector[i];
+                result1 = translated_vector[i] - translated_vector[i-1];
+                if(result == result1)
+                    inverse_count += 1;
+            }
+            if (inverse_count == sizeof(move_list) - 1 )
+            {
+                cout << "The set has inverses with respect to addition" << endl;
+                cout << "The set is an additive group" << endl;
+            }
+            else
+            {
+                cout << "The set dosen't have inverses for every element" << endl;
+                cout << "The set is not a multiplicative group" << endl;
+                exit(0);
+            }
+        }
+        else
+        {
+            cout << "The set has no identity element" << endl;
+            cout << "The set is not a multiplicative group" << endl;
+            exit(0);
+        }
     }
     bool is_multiplicative_group()
     {
-
+        /* L -> 0
+        *  R -> 1
+        *  U -> 2
+        *  D -> 3
+        */
+        vector <int> translated_vector;
+        for (int i = 0; i < sizeof (move_list); i++)
+        {
+            switch (move_list[i])
+            {
+                case 'L' : translated_vector.push_back(1);
+                break;
+                case 'R' : translated_vector.push_back(2);
+                break;
+                case 'U' : translated_vector.push_back(3);
+                break;
+                case 'D' : translated_vector.push_back(4);
+                break;
+                default: break;
+            }
+        }
+        cout << "The set has identity element" << endl;
+        int associative_count = 0, result, result1;
+        for (int i = 1; i < sizeof(move_list); i++)
+        {
+            result = translated_vector[i-1] * translated_vector[i];
+            result1 = translated_vector[i] * translated_vector[i-1];
+            if(result == result1)
+                associative_count += 1;
+        }
+        if (associative_count == sizeof(move_list) -1 )
+        {
+            cout << "Group is associative" << endl;
+            int inverse_count = 0;
+            for (int i = 1; i < sizeof(move_list); i++)
+            {
+                result = translated_vector[i-1] / translated_vector[i];
+                result1 = translated_vector[i] / translated_vector[i-1];
+                if(result == result1)
+                    inverse_count += 1;
+            }
+            if (inverse_count == sizeof(move_list) - 1 )
+            {
+                cout << "The set has inverses with respect to multiplication" << endl;
+                cout << "The set is an multiplicative group" << endl;
+            }
+            else
+            {
+                cout << "The set dosen't have inverses for every element" << endl;
+                cout << "The set is not a multiplicative group" << endl;
+                exit(0);
+            }
+        }
+        else
+        {
+            cout << "The set has no identity element" << endl;
+            cout << "The set is not a multiplicative group" << endl;
+            exit(0);
+        }
     }
 };
 
