@@ -1,0 +1,12 @@
+Left rotation:
+  take row number
+  swap elements with left side face
+Right rotation:
+  take row number
+  swap elements with right side face
+Up rotation
+  take column number
+  swap elements with down side face
+Down rotation
+  take column number
+  swap elements with up side face
