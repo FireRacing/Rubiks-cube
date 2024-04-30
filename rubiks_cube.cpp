@@ -4,7 +4,12 @@
 using namespace std;
 
 struct cube_struct{
-    vector<vector<int>> face1, face2, face3, face4, face5, face6;
+    vector<vector<int>> face1; //Top side face
+    vector <vector<int>> face2; // Right side face
+    vector <vector <int>> face3; // Bottom side face
+    vector <vector<int>> face4; // Left side face
+    vector <vector<int>> face5; // Front side face
+    vector <vector<int>> face6; // Back side face
     vector <char> move_list;
 };
 
@@ -187,6 +192,72 @@ public:
         int face;
         cout << "Which cube face do you want to select?: ";
         cin >> face;
+        bool is_rotated;
+        switch (face)
+        {
+        case 1 : char rotation;
+                if (rotation == 'L' || rotation == 'R')
+                    is_rotated = horizontal_rotation(rotation);
+                else if (rotation == 'U' || rotation == 'U')
+                    is_rotated = vertical_rotation(rotation);
+                if (is_rotated == true);
+                    continue;
+                else
+                    cout << "Rotation failed" << endl;
+
+        break;
+        case 2 : char rotation;
+                if (rotation == 'L' || rotation == 'R')
+                    horizontal_rotation(rotation);
+                else if (rotation == 'U' || rotation == 'U')
+                    vertical_rotation(rotation);
+                if (is_rotated == true)
+                    continue;
+                else
+                    cout << "Rotation failed" << endl;
+        break;
+        case 3 : char rotation;
+                if (rotation == 'L' || rotation == 'R')
+                    horizontal_rotation(rotation);
+                else if (rotation == 'U' || rotation == 'U')
+                    vertical_rotation(rotation);
+                break;
+                if (is_rotated == true)
+                    cout << "Rotation successful"
+                    continue;
+                else
+                    cout << "Rotation failed" << endl;
+
+        case 4 : char rotation;
+                if (rotation == 'L' || rotation == 'R')
+                    horizontal_rotation(rotation);
+                else if (rotation == 'U' || rotation == 'U')
+                    vertical_rotation(rotation);
+                break;
+
+        case 5 : char rotation;
+                if (rotation == 'L' || rotation == 'R')
+                    horizontal_rotation(rotation);
+                else if (rotation == 'U' || rotation == 'U')
+                    vertical_rotation(rotation);
+                break;
+
+        case 6 : char rotation;
+                if (rotation == 'L' || rotation == 'R')
+                    horizontal_rotation(rotation);
+                else if (rotation == 'U' || rotation == 'U')
+                    vertical_rotation(rotation);
+                break;
+
+        }
+    }
+    bool horizontal_rotation(char rotation)
+    {
+
+    }
+    bool vertical_rotation(char rotation)
+    {
+
     }
     bool is_additive_group(vector<char> move_list)
     {
