@@ -1,3 +1,4 @@
+/* An application to play rubiks cube in the terminal and check for group validity on the moves used to solve it */
 #include <iostream>
 #include <vector>
 #include <cstdlib>
@@ -190,7 +191,7 @@ public:
                 cout << new_cube.face1[i][j] << endl;
         }
         int face;
-        cout << "Which cube face do you want to select?: ";
+ /*       cout << "Which cube face do you want to select?: ";
         cin >> face;
         bool is_rotated;
         switch (face)
@@ -204,60 +205,63 @@ public:
                     continue;
                 else
                     cout << "Rotation failed" << endl;
-
         break;
         case 2 : char rotation;
                 if (rotation == 'L' || rotation == 'R')
-                    is_rotated = horizontal_rotation(rotation);
+                    is_rotated = horizontal_rotation(new_cube_struct, rotation);
                 else if (rotation == 'U' || rotation == 'U')
-                    is_rotated = vertical_rotation(rotation)
+                    is_rotated = vertical_rotation(new_cube_struct, rotation)
         break;
         case 3 : char rotation;
                 if (rotation == 'L' || rotation == 'R')
-                    is_rotated = horizontal_rotation(rotation);
+                    is_rotated = horizontal_rotation(new_cube_struct, rotation);
                 else if (rotation == 'U' || rotation == 'U')
-                    is_rotated = vertical_rotation(rotation);
+                    is_rotated = vertical_rotation(new_cube_struct, rotation);
                 break;
-
         case 4 : char rotation;
                 if (rotation == 'L' || rotation == 'R')
-                    is_rotated = horizontal_rotation(rotation);
+                    is_rotated = horizontal_rotation(new_cube_struct, rotation);
                 else if (rotation == 'U' || rotation == 'U')
-                    is_rotated = vertical_rotation(rotation);
+                    is_rotated = vertical_rotation(new_cube_struct, rotation);
                 break;
 
         case 5 : char rotation;
                 if (rotation == 'L' || rotation == 'R')
                     is_rotated = horizontal_rotation(rotation);
                 else if (rotation == 'U' || rotation == 'U')
-                    is_rotated = vertical_rotation(rotation);
+                    is_rotated = vertical_rotation(new_cube_struct, rotation);
                 break;
 
         case 6 : char rotation;
                 if (rotation == 'L' || rotation == 'R')
                     is_rotated = horizontal_rotation(rotation);
                 else if (rotation == 'U' || rotation == 'U')
-                    is_rotated = vertical_rotation(rotation);
+                    is_rotated = vertical_rotation(new_cube_struct, rotation);
                 break;
 
-        }
+*/        }
     }
-    void horizontal_rotation(char rotation)
+    void horizontal_rotation(cube_struct new_cube_struct, char rotation)
     {
+        /* Function for generalized horizontal rotation
+        *
+        */
         int row_length = sizeof(new_cube_struct.face1);
         for (int i = 0; i < columnn_length; i++)
             column_vector.push_back(0);
-        for (int i = 0; i < row_length; i++)
-            row_vector.push_back(0);
         cout << "Select face: ";
         int face;
         cin >> face;
-        for (int i = 0; i < row_length ; i++)
-
+        switch (face)
+        {
+            case 1 :
+        }
     }
     void vertical_rotation(char rotation)
     {
         int column_length = sizeof(new_cube_struct.face1[1]);
+        for (int i = 0; i < row_length; i++)
+            row_vector.push_back(0);
 
     }
     bool is_additive_group(vector<char> move_list)
@@ -390,4 +394,5 @@ int main()
 {
     rubiks_cube rubiks_cube_instance;
     rubiks_cube_instance.populate_cube_faces();
+    delete rubiks_cube_instance;
 }
