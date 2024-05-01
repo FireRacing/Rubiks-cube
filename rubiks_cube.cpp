@@ -191,7 +191,7 @@ public:
                 cout << new_cube.face1[i][j] << endl;
         }
         int face;
- /*       cout << "Which cube face do you want to select?: ";
+        cout << "Which cube face do you want to select?: ";
         cin >> face;
         bool is_rotated;
         switch (face)
@@ -239,7 +239,7 @@ public:
                     is_rotated = vertical_rotation(new_cube_struct, rotation);
                 break;
 
-*/        }
+         }
     }
     void horizontal_rotation(cube_struct new_cube_struct, char rotation)
     {
@@ -255,6 +255,11 @@ public:
         switch (face)
         {
             case 1 :
+            case 2 :
+            case 3 :
+            case 4 :
+            case 5 :
+            case 6 :
         }
     }
     void vertical_rotation(char rotation)
@@ -394,5 +399,6 @@ int main()
 {
     rubiks_cube rubiks_cube_instance;
     rubiks_cube_instance.populate_cube_faces();
+    rubiks_cube.display_cube();
     delete rubiks_cube_instance;
 }
